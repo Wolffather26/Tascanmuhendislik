@@ -1,0 +1,116 @@
+{% load static %}
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Taşcan Mühendislik — güvenli, verimli ve sürdürülebilir yapılar.">
+    <title>{% block title %}Taşcan Mühendislik{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+    <div class="announcement"><div class="shell announcement-inner"><span class="status-dot"></span> Projeleriniz için mühendislik güvencesi</div></div>
+    <header class="site-header">
+        <div class="shell nav-wrap">
+            <a class="brand" href="{% url 'home' %}" aria-label="Taşcan Mühendislik ana sayfa">
+                <span class="brand-mark"><i></i><i></i><i></i></span>
+                <span><strong>TAŞCAN</strong><small>MÜHENDİSLİK</small></span>
+            </a>
+            <nav class="main-nav" aria-label="Ana menü">
+                <a href="{% url 'home' %}#hizmetler">Hizmetler</a>
+                <a href="{% url 'project_list' %}">Projeler</a>
+                <a href="{% url 'home' %}#hakkimizda">Hakkımızda</a>
+                <a href="{% url 'contact' %}">İletişim</a>
+            </nav>
+            <a class="nav-cta" href="{% url 'contact' %}">Teklif Al <span>↗</span></a>
+        </div>
+    </header>
+
+    {% if messages %}
+        <div class="shell flash-wrap">
+            {% for message in messages %}<div class="flash">{{ message }}</div>{% endfor %}
+        </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <footer class="site-footer">
+        <div class="shell footer-grid">
+            <div>
+                <a class="brand brand-light" href="{% url 'home' %}"><span class="brand-mark"><i></i><i></i><i></i></span><span><strong>TAŞCAN</strong><small>MÜHENDİSLİK</small></span></a>
+                <p class="footer-note">Sağlam fikirler, doğru hesaplar, güçlü yarınlar.</p>
+            </div>
+            <div><p class="footer-label">MENÜ</p><a href="{% url 'project_list' %}">Projeler</a><a href="{% url 'home' %}#hizmetler">Hizmetler</a><a href="{% url 'contact' %}">İletişim</a></div>
+            <div><p class="footer-label">İLETİŞİM</p><a href="tel:{{ site.phone|default:'+903120000000' }}">{{ site.phone|default:'+90 312 000 00 00' }}</a><a href="mailto:{{ site.email|default:'info@tascanmuhendislik.com' }}">{{ site.email|default:'info@tascanmuhendislik.com' }}</a><span>{{ site.address|default:'Çankaya, Ankara' }}</span></div>
+        </div>
+        <div class="shell footer-bottom"><span>© {% now "Y" %} Taşcan Mühendislik</span><span>Güvenle tasarlıyoruz.</span></div>
+    </footer>
+
+    <script>
+        // Sayıların animasyonlu şekilde artması
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // 2 saniye
+                const start = Date.now();
+                
+                function update() {
+                    const now = Date.now();
+                    const progress = Math.min((now - start) / duration, 1);
+                    const value = Math.floor(progress * target);
+                    counter.textContent = value;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.textContent = target;
+                    }
+                }
+                
+                update();
+            });
+
+            // 24/7 için özel animasyon
+            const counterTime = document.querySelector('.counter-time');
+            if (counterTime) {
+                const target = 24;
+                const duration = 2000;
+                const start = Date.now();
+                
+                function updateTime() {
+                    const now = Date.now();
+                    const progress = Math.min((now - start) / duration, 1);
+                    const value = Math.floor(progress * target);
+                    counterTime.textContent = value;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateTime);
+                    } else {
+                        counterTime.textContent = target;
+                    }
+                }
+                
+                updateTime();
+            }
+        }
+
+        // Intersection Observer ile sayılar görüle gelince animasyon başlat
+        const metricsSection = document.querySelector('.metrics');
+        if (metricsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.dataset.animated) {
+                        entry.target.dataset.animated = 'true';
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(metricsSection);
+        }
+    </script>
+</body>
+</html>

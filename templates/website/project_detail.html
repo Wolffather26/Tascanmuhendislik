@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} | Taşcan Mühendislik{% endblock %}
+{% block content %}
+<main class="inner-page"><section class="detail-hero shell"><a class="back-link" href="{% url 'project_list' %}">← Tüm projeler</a><div class="detail-meta"><span>{{ project.category }}</span><span>{{ project.location }} · {{ project.year }}</span></div><h1>{{ project.title }}</h1><div class="detail-visual" style="--accent: {{ project.accent }}"><div class="building-art large-building"><i></i><i></i><i></i><i></i></div></div></section><section class="shell detail-copy"><div class="section-kicker">PROJE DETAYLARI</div><div><p class="large-copy">{{ project.summary }}</p><p>{{ project.details|default:'Taşcan Mühendislik olarak bu projede güvenli, verimli ve estetik çözümleri bir araya getirdik.' }}</p><a class="button button-primary" href="{% url 'contact' %}">Benzer bir proje konuşalım <span>↗</span></a></div></section></main>
+{% endblock %}
