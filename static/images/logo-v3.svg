@@ -1,0 +1,19 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Minimal art style logo -->
+  <circle cx="100" cy="100" r="95" fill="#fafafa" stroke="#e5e5e5" stroke-width="1"/>
+  
+  <!-- Flowing wave pattern -->
+  <path d="M 30 100 Q 50 60, 70 80 Q 90 100, 110 70 Q 130 40, 170 90" 
+        stroke="#8b5cf6" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Organic blob shapes -->
+  <path d="M 60 120 Q 40 140, 60 160 Q 80 170, 90 150 Q 85 125, 65 120" 
+        fill="#f472b6" opacity="0.6"/>
+  
+  <path d="M 140 130 Q 160 115, 155 145 Q 140 160, 125 150 Q 130 130, 140 130" 
+        fill="#60a5fa" opacity="0.5"/>
+  
+  <!-- Minimal geometric accents -->
+  <rect x="50" y="50" width="8" height="8" fill="#fb923c" opacity="0.7" transform="rotate(45 54 54)"/>
+  <circle cx="155" cy="75" r="4" fill="#10b981" opacity="0.6"/>
+</svg>

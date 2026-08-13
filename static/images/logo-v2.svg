@@ -1,0 +1,35 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="100" cy="100" r="95" fill="#ffffff" stroke="#f0f0f0" stroke-width="1"/>
+  
+  <!-- Large abstract shape (left) -->
+  <path d="M 30 70 Q 50 50, 70 60 Q 80 65, 75 85 Q 60 100, 40 95 Q 25 90, 30 70" 
+        fill="url(#grad1)" opacity="0.8"/>
+  
+  <!-- Medium abstract shape (top right) -->
+  <ellipse cx="130" cy="60" rx="35" ry="25" fill="url(#grad2)" opacity="0.7" transform="rotate(-25 130 60)"/>
+  
+  <!-- Small dynamic circles -->
+  <circle cx="110" cy="130" r="18" fill="#6366f1" opacity="0.6"/>
+  <circle cx="75" cy="130" r="12" fill="#ec4899" opacity="0.5"/>
+  <circle cx="145" cy="95" r="8" fill="#fbbf24" opacity="0.7"/>
+  
+  <!-- Abstract flowing line -->
+  <path d="M 50 110 Q 80 120, 110 115 Q 140 110, 160 125" 
+        stroke="#6366f1" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round"/>
+  
+  <!-- Accent dots -->
+  <circle cx="50" cy="50" r="2" fill="#ec4899"/>
+  <circle cx="160" cy="140" r="2.5" fill="#f97316"/>
+</svg>
