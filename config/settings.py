@@ -8,8 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 
 SECRET_KEY = os.environ.get('SECRET_KEY', "django-insecure-tascan-muhendislik-local-key")
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*.pythonanywhere.com"]
+DEBUG = False  # Production'da False olmalı
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "turuncu.pythonanywhere.com", "*.pythonanywhere.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
