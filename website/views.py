@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.i18n import set_language
 
 from .models import ContactMessage, Project, Service, SiteSettings
 
@@ -14,21 +15,24 @@ def home(request):
         "services": Service.objects.filter(is_active=True)[:4],
         "projects": Project.objects.filter(is_featured=True)[:3],
     }
-    return render(request, "website/home.html", context)
+    template = "website/en/home.html" if request.LANGUAGE_CODE == "en" else "website/home.html"
+    return render(request, template, context)
 
 
 def project_list(request):
+    template = "website/en/projects.html" if request.LANGUAGE_CODE == "en" else "website/projects.html"
     return render(
         request,
-        "website/projects.html",
+        template,
         {"site": site_settings(), "projects": Project.objects.all()},
     )
 
 
 def project_detail(request, slug):
+    template = "website/en/project_detail.html" if request.LANGUAGE_CODE == "en" else "website/project_detail.html"
     return render(
         request,
-        "website/project_detail.html",
+        template,
         {"site": site_settings(), "project": get_object_or_404(Project, slug=slug)},
     )
 
@@ -43,6 +47,12 @@ def contact(request):
             subject=request.POST.get("subject", "").strip(),
             message=request.POST.get("message", "").strip(),
         )
-        messages.success(request, "Mesajınız alındı. En kısa sürede sizinle iletişime geçeceğiz.")
+        message = (
+            "Your message has been received. We will get back to you shortly."
+            if request.LANGUAGE_CODE == "en"
+            else "Mesajınız alındı. En kısa sürede sizinle iletişime geçeceğiz."
+        )
+        messages.success(request, message)
         return redirect("contact")
-    return render(request, "website/contact.html", {"site": site})
+    template = "website/en/contact.html" if request.LANGUAGE_CODE == "en" else "website/contact.html"
+    return render(request, template, {"site": site})

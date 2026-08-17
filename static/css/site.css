@@ -29,3 +29,32 @@ a { color:inherit; text-decoration:none; }
 .site-footer { background:var(--dark); color:white; padding:70px 0 25px; }.footer-grid { display:grid; grid-template-columns:2fr 1fr 1.2fr; gap:60px; padding-bottom:65px; }.brand-light small { color:#8ea5a1; }.footer-note { color:#9bb0ad; font-size:13px; margin-top:23px; }.footer-grid > div:not(:first-child) { display:flex; flex-direction:column; gap:9px; }.footer-label { color:var(--cyan); font:10px 'DM Mono',monospace; letter-spacing:.13em; margin:0 0 11px; }.footer-grid a,.footer-grid span { color:#b4c3c1; font-size:13px; }.footer-grid a:hover { color:var(--orange); }.footer-bottom { border-top:1px solid #30484b; padding-top:19px; display:flex; justify-content:space-between; color:#718782; font:10px 'DM Mono',monospace; }.flash-wrap { position:relative; z-index:10; }.flash { background:#d5f0e7; color:#155646; padding:14px 18px; margin-top:18px; font-size:13px; }
 @media (max-width: 850px) { .shell { width:min(100% - 38px,620px); }.main-nav { display:none; }.nav-cta { margin-left:auto; }.hero-grid,.intro-content,.contact-page,.detail-copy { grid-template-columns:1fr; }.hero-copy { padding:75px 0 55px; }.hero-art { min-height:470px; }.hero-trust { margin-top:54px; flex-wrap:wrap; }.intro { padding:85px 0; }.intro-content { gap:35px; }.metrics { grid-template-columns:repeat(2,1fr); gap:25px 0; margin-top:65px; }.metrics div:nth-child(2) { border-right:0; }.services-section,.projects-section { padding:80px 0; }.section-head { display:block; }.section-head > p { margin-top:30px; width:auto; }.service-grid,.project-grid { grid-template-columns:1fr 1fr; }.service-card { min-height:250px; }.project-art { height:260px; }.projects-head .arrow-link { display:inline-block; margin-top:30px; }.contact-page { gap:70px; padding:80px 0; }.page-hero { padding:80px 0 65px; }.detail-meta { margin-top:55px; }.footer-grid { grid-template-columns:1fr 1fr; }.footer-grid > div:first-child { grid-column:1/-1; } }
 @media (max-width: 520px) { .shell { width:calc(100% - 34px); }.nav-wrap { min-height:70px; }.nav-cta { padding:10px 12px; }.hero h1,.page-hero h1,.contact-intro h1 { font-size:43px; }.hero-art { min-height:390px; }.blueprint { right:15%; width:70%; }.hero-stamp { right:10px; }.hero-trust { font-size:9px; gap:12px; }.service-grid,.project-grid { grid-template-columns:1fr; }.service-card { min-height:230px; }.project-art { height:320px; }.contact-form { padding:24px; }.detail-visual { height:330px; }.footer-grid { grid-template-columns:1fr; gap:35px; }.footer-grid > div:first-child { grid-column:auto; }.footer-bottom { display:block; line-height:2; } }
+
+/* Language Switcher */
+.language-switcher { display:flex; align-items:center; margin-left:20px; }
+.lang-select { padding:8px 12px; border:1px solid var(--line); background:white; color:var(--ink); border-radius:4px; font-family:'Manrope',sans-serif; font-size:12px; font-weight:600; cursor:pointer; transition:.2s ease; }
+.lang-select:hover { border-color:var(--orange); background:var(--paper); }
+.lang-select option { background:white; color:var(--ink); }
+
+@media (max-width: 850px) { .language-switcher { margin-left:auto; margin-right:15px; }.lang-select { padding:7px 10px; font-size:11px; } }
+
+/* Brand palette: blue and orange are used as equal accents, with neutral space
+   keeping neither colour visually dominant. */
+:root { --blue:#1769c2; --blue-dark:#123b70; --blue-soft:#dcecff; --orange:#f26a3d; --dark:var(--blue-dark); --cyan:var(--blue-soft); }
+.announcement { color:#c8dcf5; }
+.hero-art { background:#e8f2ff; }
+.art-glow { background:var(--blue-soft); }
+.art-circle { border-color:#8db8e8; }
+.blueprint { border-color:rgba(23,105,194,.48); color:var(--blue); }
+.bp-lines { background:linear-gradient(90deg,transparent 49.8%,rgba(23,105,194,.25) 50%,transparent 50.2%),linear-gradient(0deg,transparent 49.8%,rgba(23,105,194,.25) 50%,transparent 50.2%); }
+.bp-building,.bp-building b { border-color:var(--blue); }
+.bp-building:before,.bp-building b:after { background:var(--blue); box-shadow:0 20px var(--blue),0 40px var(--blue),0 60px var(--blue); }
+.bp-cross:before,.bp-cross:after { background:var(--blue); }
+.art-caption { color:#3678ba; }
+.service-card:hover { background:#194d87; }
+.service-grid { background:#3f6591; border-color:#3f6591; }
+.project-card:nth-child(2) .project-art { background:#b9d9fa; }
+.project-card:nth-child(3) .project-art { background:#f5c1a9; }
+.footer-label { color:var(--blue-soft); }
+.footer-bottom { border-color:#315887; }
+.flash { background:#e5f0ff; color:#174d8d; }

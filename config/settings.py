@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 
 SECRET_KEY = os.environ.get('SECRET_KEY', "django-insecure-tascan-muhendislik-local-key")
-DEBUG = False  # Production'da False olmalı
+DEBUG = True
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "turuncu.pythonanywhere.com", "*.pythonanywhere.com"]
 
 INSTALLED_APPS = [
@@ -23,8 +23,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -59,9 +59,18 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = []
-LANGUAGE_CODE = "tr-tr"
+
+# Language settings
+LANGUAGE_CODE = "tr"
+LANGUAGES = [
+    ('tr', 'Türkçe'),
+    ('en', 'English'),
+]
+LOCALE_PATHS = [BASE_DIR / "locale"]
+
 TIME_ZONE = "Europe/Istanbul"
 USE_I18N = True
+USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = "static/"

@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
-<html lang="tr">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +23,16 @@
                 <a href="{% url 'home' %}#hakkimizda">Hakkımızda</a>
                 <a href="{% url 'contact' %}">İletişim</a>
             </nav>
+            <div class="language-switcher">
+                <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <select name="language" onchange="this.form.submit()" class="lang-select">
+                        <option value="tr" {% if LANGUAGE_CODE == 'tr' %}selected{% endif %}>🇹🇷 Türkçe</option>
+                        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>🇬🇧 English</option>
+                    </select>
+                </form>
+            </div>
             <a class="nav-cta" href="{% url 'contact' %}">Teklif Al <span>↗</span></a>
         </div>
     </header>
