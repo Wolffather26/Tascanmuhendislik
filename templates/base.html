@@ -5,11 +5,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Taşcan Mühendislik — güvenli, verimli ve sürdürülebilir yapılar.">
+    <meta name="description" content="{% block meta_description %}Taşcan Mühendislik; güvenli, verimli ve sürdürülebilir yapılar için mühendislik çözümleri sunar.{% endblock %}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Taşcan Mühendislik">
+    <meta property="og:title" content="Taşcan Mühendislik">
+    <meta property="og:description" content="Güvenli, verimli ve sürdürülebilir yapılar için mühendislik çözümleri.">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo3.png' %}">
+    <meta name="twitter:card" content="summary">
     <title>{% block title %}Taşcan Mühendislik{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/site.css' %}?v=2">
 </head>
 <body>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EngineeringService",
+      "name": "{{ site.company_name|default:'Taşcan Mühendislik'|escapejs }}",
+      "description": "{{ site.about_text|default:'Güvenli, verimli ve sürdürülebilir yapılar için mühendislik çözümleri.'|escapejs }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}",
+      "telephone": "{{ site.phone|default:'+90 312 000 00 00'|escapejs }}",
+      "email": "{{ site.email|default:'info@tascanmuhendislik.com'|escapejs }}",
+      "address": {"@type": "PostalAddress", "addressLocality": "{{ site.address|default:'Çankaya, Ankara'|escapejs }}", "addressCountry": "TR"}
+    }
+    </script>
     <div class="announcement"><div class="shell announcement-inner"><span class="status-dot"></span> Projeleriniz için mühendislik güvencesi</div></div>
     <header class="site-header">
         <div class="shell nav-wrap">

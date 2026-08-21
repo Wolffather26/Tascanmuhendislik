@@ -3,11 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Taşcan Engineering — safe, efficient and sustainable structures.">
+    <meta name="description" content="{% block meta_description %}Taşcan Engineering provides safe, efficient and sustainable engineering solutions.{% endblock %}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Taşcan Engineering">
+    <meta property="og:title" content="Taşcan Engineering">
+    <meta property="og:description" content="Safe, efficient and sustainable engineering solutions.">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo3.png' %}">
+    <meta name="twitter:card" content="summary">
     <title>{% block title %}Taşcan Engineering{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/site.css' %}?v=2">
 </head>
 <body>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"EngineeringService","name":"{{ site.company_name|default:'Taşcan Engineering'|escapejs }}","url":"{{ request.scheme }}://{{ request.get_host }}","telephone":"{{ site.phone|default:'+90 312 000 00 00'|escapejs }}","email":"{{ site.email|default:'info@tascanmuhendislik.com'|escapejs }}"}
+    </script>
     <div class="announcement"><div class="shell announcement-inner"><span class="status-dot"></span> Engineering confidence for your projects</div></div>
     <header class="site-header"><div class="shell nav-wrap">
         <a class="brand" href="{% url 'home' %}" aria-label="Taşcan Engineering home"><img src="{% static 'images/logo3-mark.png' %}?v=1" alt="Logo" class="brand-logo"><span><strong>TAŞCAN</strong><small>ENGINEERING</small></span></a>
