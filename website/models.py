@@ -6,8 +6,8 @@ class SiteSettings(models.Model):
     company_name = models.CharField("Firma adı", max_length=120, default="Taşcan Mühendislik")
     tagline = models.CharField("Kısa slogan", max_length=180, default="Geleceği sağlam temellerle inşa ediyoruz.")
     phone = models.CharField("Telefon", max_length=40, default="+90 312 000 00 00")
-    email = models.EmailField("E-posta", default="info@tascanmuhendislik.com")
-    address = models.CharField("Adres", max_length=240, default="Çankaya, Ankara")
+    email = models.EmailField("E-posta", default="info@tascanmuhendislik.com.tr")
+    address = models.CharField("Adres", max_length=240, default="Odunpazarı, Eskişehir")
     about_text = models.TextField(
         "Hakkımızda metni",
         default=(

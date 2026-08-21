@@ -16,6 +16,7 @@
     <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo3.png' %}">
     <meta name="twitter:card" content="summary">
     <title>{% block title %}Taşcan Mühendislik{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}?v=2">
     <link rel="stylesheet" href="{% static 'css/site.css' %}?v=2">
 </head>
 <body>
@@ -27,8 +28,8 @@
       "description": "{{ site.about_text|default:'Güvenli, verimli ve sürdürülebilir yapılar için mühendislik çözümleri.'|escapejs }}",
       "url": "{{ request.scheme }}://{{ request.get_host }}",
       "telephone": "{{ site.phone|default:'+90 312 000 00 00'|escapejs }}",
-      "email": "{{ site.email|default:'info@tascanmuhendislik.com'|escapejs }}",
-      "address": {"@type": "PostalAddress", "addressLocality": "{{ site.address|default:'Çankaya, Ankara'|escapejs }}", "addressCountry": "TR"}
+      "email": "{{ site.email|default:'info@tascanmuhendislik.com.tr'|escapejs }}",
+      "address": {"@type": "PostalAddress", "addressLocality": "{{ site.address|default:'Odunpazarı, Eskişehir'|escapejs }}", "addressCountry": "TR"}
     }
     </script>
     <div class="announcement"><div class="shell announcement-inner"><span class="status-dot"></span> Projeleriniz için mühendislik güvencesi</div></div>
@@ -73,7 +74,7 @@
                 <p class="footer-note">Sağlam fikirler, doğru hesaplar, güçlü yarınlar.</p>
             </div>
             <div><p class="footer-label">MENÜ</p><a href="{% url 'project_list' %}">Projeler</a><a href="{% url 'home' %}#hizmetler">Hizmetler</a><a href="{% url 'contact' %}">İletişim</a></div>
-            <div><p class="footer-label">İLETİŞİM</p><a href="tel:{{ site.phone|default:'+903120000000' }}">{{ site.phone|default:'+90 312 000 00 00' }}</a><a href="mailto:{{ site.email|default:'info@tascanmuhendislik.com' }}">{{ site.email|default:'info@tascanmuhendislik.com' }}</a><span>{{ site.address|default:'Çankaya, Ankara' }}</span></div>
+            <div><p class="footer-label">İLETİŞİM</p><a href="tel:{{ site.phone|default:'+903120000000' }}">{{ site.phone|default:'+90 312 000 00 00' }}</a><a href="mailto:{{ site.email|default:'info@tascanmuhendislik.com.tr' }}">{{ site.email|default:'info@tascanmuhendislik.com.tr' }}</a><span>{{ site.address|default:'Odunpazarı, Eskişehir' }}</span></div>
         </div>
         <div class="shell footer-bottom"><span>© {% now "Y" %} Taşcan Mühendislik</span><span>Güvenle tasarlıyoruz.</span></div>
     </footer>

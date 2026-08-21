@@ -14,11 +14,12 @@
     <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo3.png' %}">
     <meta name="twitter:card" content="summary">
     <title>{% block title %}Taşcan Engineering{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}?v=2">
     <link rel="stylesheet" href="{% static 'css/site.css' %}?v=2">
 </head>
 <body>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"EngineeringService","name":"{{ site.company_name|default:'Taşcan Engineering'|escapejs }}","url":"{{ request.scheme }}://{{ request.get_host }}","telephone":"{{ site.phone|default:'+90 312 000 00 00'|escapejs }}","email":"{{ site.email|default:'info@tascanmuhendislik.com'|escapejs }}"}
+    {"@context":"https://schema.org","@type":"EngineeringService","name":"{{ site.company_name|default:'Taşcan Engineering'|escapejs }}","url":"{{ request.scheme }}://{{ request.get_host }}","telephone":"{{ site.phone|default:'+90 312 000 00 00'|escapejs }}","email":"{{ site.email|default:'info@tascanmuhendislik.com.tr'|escapejs }}"}
     </script>
     <div class="announcement"><div class="shell announcement-inner"><span class="status-dot"></span> Engineering confidence for your projects</div></div>
     <header class="site-header"><div class="shell nav-wrap">
@@ -29,5 +30,5 @@
     </div></header>
     {% if messages %}<div class="shell flash-wrap">{% for message in messages %}<div class="flash">{{ message }}</div>{% endfor %}</div>{% endif %}
     {% block content %}{% endblock %}
-    <footer class="site-footer"><div class="shell footer-grid"><div><a class="brand brand-light" href="{% url 'home' %}"><img src="{% static 'images/logo3-mark.png' %}?v=1" alt="Logo" class="brand-logo"><span><strong>TAŞCAN</strong><small>ENGINEERING</small></span></a><p class="footer-note">Solid ideas, accurate calculations, stronger tomorrows.</p></div><div><p class="footer-label">MENU</p><a href="{% url 'project_list' %}">Projects</a><a href="{% url 'home' %}#hizmetler">Services</a><a href="{% url 'contact' %}">Contact</a></div><div><p class="footer-label">CONTACT</p><a href="tel:{{ site.phone|default:'+903120000000' }}">{{ site.phone|default:'+90 312 000 00 00' }}</a><a href="mailto:{{ site.email|default:'info@tascanmuhendislik.com' }}">{{ site.email|default:'info@tascanmuhendislik.com' }}</a><span>{{ site.address|default:'Çankaya, Ankara' }}</span></div></div><div class="shell footer-bottom"><span>© {% now "Y" %} Taşcan Engineering</span><span>Designing with confidence.</span></div></footer>
+    <footer class="site-footer"><div class="shell footer-grid"><div><a class="brand brand-light" href="{% url 'home' %}"><img src="{% static 'images/logo3-mark.png' %}?v=1" alt="Logo" class="brand-logo"><span><strong>TAŞCAN</strong><small>ENGINEERING</small></span></a><p class="footer-note">Solid ideas, accurate calculations, stronger tomorrows.</p></div><div><p class="footer-label">MENU</p><a href="{% url 'project_list' %}">Projects</a><a href="{% url 'home' %}#hizmetler">Services</a><a href="{% url 'contact' %}">Contact</a></div><div><p class="footer-label">CONTACT</p><a href="tel:{{ site.phone|default:'+903120000000' }}">{{ site.phone|default:'+90 312 000 00 00' }}</a><a href="mailto:{{ site.email|default:'info@tascanmuhendislik.com.tr' }}">{{ site.email|default:'info@tascanmuhendislik.com.tr' }}</a><span>{{ site.address|default:'Odunpazarı, Eskişehir' }}</span></div></div><div class="shell footer-bottom"><span>© {% now "Y" %} Taşcan Engineering</span><span>Designing with confidence.</span></div></footer>
 </body></html>
